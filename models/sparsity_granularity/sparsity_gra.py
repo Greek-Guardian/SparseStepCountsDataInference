@@ -8,14 +8,15 @@ from sklearn.metrics import accuracy_score
 def sparse_gra():
     # load testing data and labels
     df_com_data = pd.read_csv('../../data/complete_data.csv')
+    total_rows = df_com_data.shape[0]
     p = pd.read_csv('../../data/sparse_distribution.csv').iloc[:,0].values
-    sub_df_com_data = sub_dataframe(df_com_data.iloc[40000:, :])
+    sub_df_com_data = sub_dataframe(df_com_data.iloc[round(0.8 * total_rows):, :])
     df_label1 = pd.read_csv('../../data/complete_data_labels1.csv')
-    coarse_labels = df_label1.iloc[40000:, :].values
+    coarse_labels = df_label1.iloc[round(0.8 * total_rows):, :].values
     df_label2 = pd.read_csv('../../data/complete_data_labels2.csv')
-    medium_labels = df_label2.iloc[40000:, :].values
+    medium_labels = df_label2.iloc[round(0.8 * total_rows):, :].values
     df_label3 = pd.read_csv('../../data/complete_data_labels3.csv')
-    fine_labels = df_label3.iloc[40000:, :].values
+    fine_labels = df_label3.iloc[round(0.8 * total_rows):, :].values
 
     testing_sparsity = [5,10,15,20,25,30,35,40,45,50,55,60]
     for n in testing_sparsity:

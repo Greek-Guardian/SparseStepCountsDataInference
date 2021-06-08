@@ -40,4 +40,5 @@ def dataframe_preprocess(df_input):
 if __name__ == "__main__":
     df_input = pd.read_csv('filtered_data.csv')
     df_output = dataframe_preprocess(df_input)
+    df_output = df_output.round(4)
     df_output.to_csv('complete_data.csv', index=False)

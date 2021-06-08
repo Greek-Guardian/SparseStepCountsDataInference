@@ -25,8 +25,9 @@ def prepare_mixed_data_granularity(root_path, granularity):
     """
     # load data and labels
     df_labels = pd.read_csv(os.path.join(root_path, 'complete_data_labels{}.csv'.format(granularity)))
-    test_labels = df_labels.iloc[40000:, 0].values
-    train_labels = df_labels.iloc[0:40000, 0].values
+    total_rows = df_labels.shape[0]
+    test_labels = df_labels.iloc[round(0.8 * total_rows):, 0].values
+    train_labels = df_labels.iloc[0:round(0.8 * total_rows), 0].values
     final_train_labels = train_labels
     for i in range(5):
         final_train_labels = np.append(final_train_labels, train_labels, axis=0)
@@ -37,9 +38,9 @@ def prepare_mixed_data_granularity(root_path, granularity):
     train_x = np.array([])
     for name in traindata_names:
         single_sparse_data = np.load(os.path.join(root_path, name))
-        train_data = single_sparse_data[0:40000, :, :]
+        train_data = single_sparse_data[0:round(0.8 * total_rows), :, :]
         if name == "single_all_sparse1020.npy":
-            test_x = single_sparse_data[40000:, :, :]
+            test_x = single_sparse_data[round(0.8 * total_rows):, :, :]
         if train_x.shape[0] == 0:
             train_x = train_data
         else:
