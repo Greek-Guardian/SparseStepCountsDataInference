@@ -313,11 +313,11 @@ def train_britsi(model, train_dataloader, test_dataloader, text_path, model_path
         micro_auc1 = roc_auc_score(test_label_out.tolist(), test_pred_score, average='weighted',
                                    multi_class='ovo',
                                    labels=list(range(classes)))
-        macro_auc = roc_auc_score(test_label_out.tolist(), final_y_score.tolist(), multi_class='ovo',
-                                  labels=list(range(classes)))
-        micro_auc = roc_auc_score(test_label_out.tolist(), final_y_score.tolist(), average='weighted',
-                                  multi_class='ovo',
-                                  labels=list(range(classes)))
+        # macro_auc = roc_auc_score(test_label_out.tolist(), final_y_score.tolist(), multi_class='ovo',
+        #                           labels=list(range(classes)))
+        # micro_auc = roc_auc_score(test_label_out.tolist(), final_y_score.tolist(), average='weighted',
+        #                           multi_class='ovo',
+        #                           labels=list(range(classes)))
         macro_p = metrics.precision_score(test_label_out.tolist(), test_pred_out.tolist(), average='macro',
                                           labels=list(range(classes)))
         micro_p = metrics.precision_score(test_label_out.tolist(), test_pred_out.tolist(), average='micro',
@@ -335,15 +335,16 @@ def train_britsi(model, train_dataloader, test_dataloader, text_path, model_path
 
         a = "Epoch: {} Train loss: {:.4f}, Train acc:{:.4f}, Test loss: {:.4f}, Test acc: {:.4f}, Time: {:.4f}\r\n". \
             format(epoch, train_loss, train_acc, test_loss, test_acc, training_time)
-        b = 'macro auc: {:.4f} and micro auc: {:.4f}\r\n'.format(macro_auc, micro_auc)
-        c = 'zero and one macro auc: {:.4f} and micro auc: {:.4f}\r\n'.format(macro_auc1, micro_auc1)
+        # b = 'macro auc: {:.4f} and micro auc: {:.4f}\r\n'.format(macro_auc, micro_auc)
+        # c = 'zero and one macro auc: {:.4f} and micro auc: {:.4f}\r\n'.format(macro_auc1, micro_auc1)
+        c = 'macro auc: {:.4f} and micro auc: {:.4f}\r\n'.format(macro_auc1, micro_auc1)
         d = 'macro precision: {:.4f} and micro precision: {:.4f}\r\n'.format(macro_p, micro_p)
         e = 'macro recall: {:.4f} and micro recall: {:.4f}\r\n'.format(macro_recall, micro_recall)
         g = 'macro f1: {:.4f} and micro f1: {:.4f}\r\n'.format(macro_f1, micro_f1)
 
-        f.write(a + b + c + d + e + g)
+        f.write(a + c + d + e + g)
         f.close()
-        print(a + b + c + d + e + g)
+        print(a + c + d + e + g)
         torch.save(model.state_dict(), model_path)
 
 
