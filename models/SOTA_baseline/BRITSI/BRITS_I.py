@@ -342,6 +342,7 @@ def train_britsi(model, train_dataloader, test_dataloader, text_path, model_path
         e = 'macro recall: {:.4f} and micro recall: {:.4f}\r\n'.format(macro_recall, micro_recall)
         g = 'macro f1: {:.4f} and micro f1: {:.4f}\r\n'.format(macro_f1, micro_f1)
 
+        # f.write(a + b + c + d + e + g)
         f.write(a + c + d + e + g)
         f.close()
         print(a + c + d + e + g)
