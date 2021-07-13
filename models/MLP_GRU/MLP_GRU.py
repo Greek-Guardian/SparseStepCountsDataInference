@@ -144,6 +144,7 @@ if __name__ == "__main__":
                                                         train_labels=final_train_labels,
                                                         test_labels=test_labels,
                                                         batch_size=100)
+    # mlp_hidden_size is 256, which is determined by the validation set in original paper. Since we only provide about one-fifth of data in paper, this hyperparameter should be reconsidered. 
     mlp_gru = MLP_GRU(input_size=1, gru_hidden_size=64, mlp_hidden_size=256, mlp_layer=1, output_size=70, use_gpu=True,
                       device=0, output_last=True)
     train_model(mlp_gru, train_loader, test_loader, text_path='result.txt', model_path='result.pt',
