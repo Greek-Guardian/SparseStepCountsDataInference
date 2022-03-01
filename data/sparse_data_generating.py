@@ -122,7 +122,7 @@ def sub_dataframe(df):
     :return sub_df: sub data frame which has 288 columns
     """
     sub_columns = np.arange(0, 1439, 5).tolist()
-    # print(len(sub_columns))
+
     # print(sub_columns)
     str_columns = []
     for i in sub_columns:
