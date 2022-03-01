@@ -39,7 +39,7 @@ def label_calculate(df_com, classifier_center, pure_data=False):
     return labels
 
 
-def init_classifier(com_list, up_point_list, end_point=1380):
+def init_classifier(com_list, up_point_list):
     """
     initialization of classifier
     :param com_list: a list of normalized step counts
@@ -65,11 +65,11 @@ def init_classifier(com_list, up_point_list, end_point=1380):
     for classifier in classifier_list:
         final_classifier = np.array([0.0]*1440)
         # set the last hour of the day is always 1
-        final_classifier[end_point:] = 1
+        final_classifier[1380:] = 1
         for j in range(list_len):
             start_index = round(up_point_list[j]*60)
             if j == list_len - 1:
-                end_index = end_point
+                end_index = 1380
             else:
                 end_index = round(up_point_list[j+1]*60)
             final_classifier[start_index:end_index] = classifier[j]
@@ -86,8 +86,7 @@ if __name__ == "__main__":
     for com_list in com_lists:
         print(com_list)
         final_classifier_result, classifier_result = init_classifier(com_list=com_list,
-                                                                     up_point_list=[8, 12, 16, 20],
-                                                                     end_point=1380)
+                                                                     up_point_list=[8, 12, 16, 20])
         labels = label_calculate(df_com.iloc[:, :], final_classifier_result)
         se_labels = pd.Series(labels)
         se_labels.to_csv("complete_data_labels{}.csv".format(granularity), index=False)
