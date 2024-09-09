@@ -318,17 +318,17 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
                                    labels=list(range(classes)))
 
         macro_p = metrics.precision_score(test_label_out.tolist(), test_pred_out.tolist(), average='macro',
-                                          labels=list(range(classes)))
+                                          labels=list(range(classes)), zero_division=1)
         micro_p = metrics.precision_score(test_label_out.tolist(), test_pred_out.tolist(), average='micro',
-                                          labels=list(range(classes)))
+                                          labels=list(range(classes)), zero_division=1)
         macro_recall = metrics.recall_score(test_label_out.tolist(), test_pred_out.tolist(), average='macro',
-                                            labels=list(range(classes)))
+                                            labels=list(range(classes)), zero_division=1)
         micro_recall = metrics.recall_score(test_label_out.tolist(), test_pred_out.tolist(), average='micro',
-                                            labels=list(range(classes)))
+                                            labels=list(range(classes)), zero_division=1)
         macro_f1 = metrics.f1_score(test_label_out.tolist(), test_pred_out.tolist(), average='macro',
-                                    labels=list(range(classes)))
+                                    labels=list(range(classes)), zero_division=1)
         micro_f1 = metrics.f1_score(test_label_out.tolist(), test_pred_out.tolist(), average='micro',
-                                    labels=list(range(classes)))
+                                    labels=list(range(classes)), zero_division=1)
 
         training_time = time.time() - pre_time
 

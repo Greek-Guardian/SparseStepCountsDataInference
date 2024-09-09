@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from torch.autograd import Variable
 from models.data_prepare import *
+import os
 
 
 class MLP_GRU(nn.Module):
@@ -71,6 +72,7 @@ class MLP_GRU(nn.Module):
         hidden_state, time_steps = self.init_hidden(batch_size)
         xs = torch.squeeze(input[:, 0, :, :])  # batch_size, time_steps, var_size
         xs[xs != xs] = -1  # replace nan into -1
+        x_predicted = xs.detach()
         x_last_obs = torch.squeeze(input[:, 1, :, :])
         masks = torch.squeeze(input[:, 2, :, :])
         d_forwards = torch.squeeze(input[:, 3, :, :])
@@ -88,6 +90,7 @@ class MLP_GRU(nn.Module):
                                            masks[:, i:i+1],
                                            d_forwards[:, i:i+1],
                                            d_backwards[:, i:i+1])
+            x_predicted[:, i:i+1] = x_im
 
         #     if xs_imputation is None:
         #         xs_imputation = x_im
@@ -106,7 +109,7 @@ class MLP_GRU(nn.Module):
         #     return outputs[:, -1, :], xs_imputation
         # else:
         #     return outputs  # batch_size, time_steps, output_size
-        return self.fc(hidden_state)
+        return self.fc(hidden_state), x_predicted
 
     def init_hidden(self, batch_size):
         time_step_lists = []
@@ -129,7 +132,13 @@ class MLP_GRU(nn.Module):
 
 
 if __name__ == "__main__":
-    root_path = "../../data/"
+    # Get the current file path
+    current_file_path = os.path.abspath(__file__)
+    # Change the working directory to the current file's directory
+    os.chdir(os.path.dirname(current_file_path))
+    print(current_file_path)
+    print(os.getcwd())
+    root_path = "../../StepCountsDataset/"
     granularity = 3
     final_train_labels, test_labels, train_x, test_x = prepare_mixed_data_granularity(root_path, granularity)
     print(len(final_train_labels))

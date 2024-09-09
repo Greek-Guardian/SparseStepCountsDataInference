@@ -80,15 +80,17 @@ def init_classifier(com_list, up_point_list):
 
 
 if __name__ == "__main__":
-    df_com = pd.read_csv('complete_data.csv')
+    df_com = pd.read_csv(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\complete_data.csv')
     com_lists = [[0, 1], [0, 0.5, 1], [0, 0.25, 0.5, 0.75, 1]]
     granularity = 1
     for com_list in com_lists:
         print(com_list)
         final_classifier_result, classifier_result = init_classifier(com_list=com_list,
                                                                      up_point_list=[8, 12, 16, 20])
+        # print(final_classifier_result)
+        # print(classifier_result, '\n')
         labels = label_calculate(df_com.iloc[:, :], final_classifier_result)
         se_labels = pd.Series(labels)
-        se_labels.to_csv("complete_data_labels{}.csv".format(granularity), index=False)
+        se_labels.to_csv(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+"complete_data_labels{}.csv".format(granularity), index=False)
         granularity += 1
 

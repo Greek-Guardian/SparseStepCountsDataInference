@@ -135,14 +135,20 @@ def sub_dataframe(df):
 
 
 if __name__ == "__main__":
-    df_com_data = pd.read_csv('complete_data.csv')
-    p = pd.read_csv('sparse_distribution.csv').iloc[:, 0].values
+    df_com_data = pd.read_csv(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+'complete_data.csv')
+    print(df_com_data.shape)
+    p = pd.read_csv(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+'sparse_distribution.csv').iloc[:, 0].values
+    print(p.shape)
     sub_df_com_data = sub_dataframe(df_com_data)
+    np.save(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+'raw_sub_df_com_data.npy', sub_df_com_data)
     retain_number = [[278,283],[268,278],[238,268],[188,238],[138,188],[5,10]]
     for n in retain_number:
+        break
         print(n)
         spaese_data = down_sampling(sub_df_com_data, n=n, p=p, back_flag=True)
+        print(type(spaese_data), spaese_data.shape)
+        continue
         if isinstance(n, list):
-            np.save('single_all_sparse{}{}.npy'.format(288-n[1], 288-n[0]), spaese_data)
+            np.save(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+'single_all_sparse{}{}.npy'.format(288-n[1], 288-n[0]), spaese_data)
         else:
-            np.save('single_all_sparse{}.npy'.format(288-n), spaese_data)
+            np.save(r'D:\vscode_workspace\Python\SparseStepCountsDataInference\StepCountsDataset\\'+'single_all_sparse{}.npy'.format(288-n), spaese_data)

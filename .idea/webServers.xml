@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="09a7fffc-dee2-4dce-99f9-fe60fd00a039" name="lab">
+        <fileTransfer rootFolder="/home/liangzida/SparseStepCountsDataInference" accessType="SFTP" host="202.120.39.190" port="3322" sshConfigId="3f4b14df-db42-478e-b5f2-ac103aa9250a" sshConfig="liangzida@202.120.39.190:3322 password">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

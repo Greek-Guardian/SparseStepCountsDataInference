@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" autoUpload="Always" serverName="liangzida@202.120.39.190:3322 password (2)">
     <serverData>
-      <paths name="front-core">
+      <paths name="lab">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/codes" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="front-core2">
+      <paths name="liangzida@202.120.39.190:3322 password">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/keqinshi/tmp/codes2" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/pycharm_project_250" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="liangzida@202.120.39.190:3322 password (2)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/liangzida/workspace/SparseStepCountsDataInference" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
