@@ -1,0 +1,515 @@
+Model Structure
+GRU(
+  (gru_cell): GRUCell(2, 64)
+  (fc): Linear(in_features=64, out_features=70, bias=True)
+)
+at epoch 0 learning_rate is updated to 0.005
+Epoch: 0 Train loss: 2.8797, Train acc:0.2204, Test loss: 2.0164, Test acc: 0.3655, Time: 69.8909
+macro auc: 0.5466 and micro auc: 0.6015
+macro precision: 0.8628 and micro precision: 0.3655
+macro recall: 0.2098 and micro recall: 0.3655
+macro f1: 0.1913 and micro f1: 0.3655
+Epoch: 1 Train loss: 1.7265, Train acc:0.4428, Test loss: 1.3738, Test acc: 0.5331, Time: 71.4251
+macro auc: 0.6300 and micro auc: 0.6906
+macro precision: 0.7517 and micro precision: 0.5331
+macro recall: 0.3552 and micro recall: 0.5331
+macro f1: 0.3408 and micro f1: 0.5331
+Epoch: 2 Train loss: 1.2119, Train acc:0.5856, Test loss: 1.1557, Test acc: 0.5796, Time: 68.7923
+macro auc: 0.6670 and micro auc: 0.7227
+macro precision: 0.6475 and micro precision: 0.5796
+macro recall: 0.4196 and micro recall: 0.5796
+macro f1: 0.4084 and micro f1: 0.5796
+Epoch: 3 Train loss: 0.9947, Train acc:0.6467, Test loss: 0.9000, Test acc: 0.6781, Time: 70.2164
+macro auc: 0.7252 and micro auc: 0.7774
+macro precision: 0.7159 and micro precision: 0.6781
+macro recall: 0.5210 and micro recall: 0.6781
+macro f1: 0.5285 and micro f1: 0.6781
+Epoch: 4 Train loss: 0.8825, Train acc:0.6817, Test loss: 0.8121, Test acc: 0.7104, Time: 70.2864
+macro auc: 0.7558 and micro auc: 0.8026
+macro precision: 0.6973 and micro precision: 0.7104
+macro recall: 0.5744 and micro recall: 0.7104
+macro f1: 0.5556 and micro f1: 0.7104
+Epoch: 5 Train loss: 0.8001, Train acc:0.7085, Test loss: 0.7407, Test acc: 0.7314, Time: 66.6915
+macro auc: 0.7663 and micro auc: 0.8120
+macro precision: 0.7345 and micro precision: 0.7314
+macro recall: 0.5925 and micro recall: 0.7314
+macro f1: 0.6023 and micro f1: 0.7314
+Epoch: 6 Train loss: 0.7620, Train acc:0.7218, Test loss: 0.7496, Test acc: 0.7206, Time: 68.2483
+macro auc: 0.7738 and micro auc: 0.8140
+macro precision: 0.6770 and micro precision: 0.7206
+macro recall: 0.6057 and micro recall: 0.7206
+macro f1: 0.5895 and micro f1: 0.7206
+Epoch: 7 Train loss: 0.7202, Train acc:0.7363, Test loss: 0.7445, Test acc: 0.7173, Time: 69.8825
+macro auc: 0.8006 and micro auc: 0.8269
+macro precision: 0.6760 and micro precision: 0.7173
+macro recall: 0.6524 and micro recall: 0.7173
+macro f1: 0.6239 and micro f1: 0.7173
+Epoch: 8 Train loss: 0.7106, Train acc:0.7372, Test loss: 0.7217, Test acc: 0.7295, Time: 68.0694
+macro auc: 0.8024 and micro auc: 0.8303
+macro precision: 0.7069 and micro precision: 0.7295
+macro recall: 0.6556 and micro recall: 0.7295
+macro f1: 0.6353 and micro f1: 0.7295
+Epoch: 9 Train loss: 0.6797, Train acc:0.7465, Test loss: 0.6778, Test acc: 0.7473, Time: 67.1323
+macro auc: 0.8129 and micro auc: 0.8407
+macro precision: 0.7050 and micro precision: 0.7473
+macro recall: 0.6738 and micro recall: 0.7473
+macro f1: 0.6457 and micro f1: 0.7473
+at epoch 10 learning_rate is updated to 0.0025
+Epoch: 10 Train loss: 0.6090, Train acc:0.7770, Test loss: 0.6207, Test acc: 0.7710, Time: 67.0407
+macro auc: 0.8149 and micro auc: 0.8474
+macro precision: 0.7127 and micro precision: 0.7710
+macro recall: 0.6772 and micro recall: 0.7710
+macro f1: 0.6547 and micro f1: 0.7710
+Epoch: 11 Train loss: 0.5950, Train acc:0.7786, Test loss: 0.6144, Test acc: 0.7724, Time: 70.6793
+macro auc: 0.8177 and micro auc: 0.8493
+macro precision: 0.7187 and micro precision: 0.7724
+macro recall: 0.6822 and micro recall: 0.7724
+macro f1: 0.6646 and micro f1: 0.7724
+Epoch: 12 Train loss: 0.5853, Train acc:0.7826, Test loss: 0.6155, Test acc: 0.7694, Time: 70.5550
+macro auc: 0.8253 and micro auc: 0.8521
+macro precision: 0.7058 and micro precision: 0.7694
+macro recall: 0.6954 and micro recall: 0.7694
+macro f1: 0.6460 and micro f1: 0.7694
+Epoch: 13 Train loss: 0.5800, Train acc:0.7828, Test loss: 0.6267, Test acc: 0.7669, Time: 74.0407
+macro auc: 0.8206 and micro auc: 0.8493
+macro precision: 0.7250 and micro precision: 0.7669
+macro recall: 0.6872 and micro recall: 0.7669
+macro f1: 0.6692 and micro f1: 0.7669
+Epoch: 14 Train loss: 0.5787, Train acc:0.7826, Test loss: 0.6294, Test acc: 0.7599, Time: 79.9839
+macro auc: 0.8188 and micro auc: 0.8470
+macro precision: 0.7132 and micro precision: 0.7599
+macro recall: 0.6841 and micro recall: 0.7599
+macro f1: 0.6667 and micro f1: 0.7599
+Epoch: 15 Train loss: 0.5651, Train acc:0.7876, Test loss: 0.6294, Test acc: 0.7621, Time: 82.0657
+macro auc: 0.8219 and micro auc: 0.8488
+macro precision: 0.7315 and micro precision: 0.7621
+macro recall: 0.6896 and micro recall: 0.7621
+macro f1: 0.6766 and micro f1: 0.7621
+Epoch: 16 Train loss: 0.5628, Train acc:0.7886, Test loss: 0.6798, Test acc: 0.7389, Time: 80.4926
+macro auc: 0.8077 and micro auc: 0.8359
+macro precision: 0.7175 and micro precision: 0.7389
+macro recall: 0.6649 and micro recall: 0.7389
+macro f1: 0.6628 and micro f1: 0.7389
+Epoch: 17 Train loss: 0.5606, Train acc:0.7890, Test loss: 0.5943, Test acc: 0.7753, Time: 78.9077
+macro auc: 0.8311 and micro auc: 0.8567
+macro precision: 0.7456 and micro precision: 0.7753
+macro recall: 0.7057 and micro recall: 0.7753
+macro f1: 0.7016 and micro f1: 0.7753
+Epoch: 18 Train loss: 0.5512, Train acc:0.7923, Test loss: 0.5986, Test acc: 0.7722, Time: 68.9851
+macro auc: 0.8294 and micro auc: 0.8552
+macro precision: 0.7436 and micro precision: 0.7722
+macro recall: 0.7026 and micro recall: 0.7722
+macro f1: 0.6912 and micro f1: 0.7722
+Epoch: 19 Train loss: 0.5458, Train acc:0.7946, Test loss: 0.6406, Test acc: 0.7516, Time: 69.3174
+macro auc: 0.8242 and micro auc: 0.8475
+macro precision: 0.7096 and micro precision: 0.7516
+macro recall: 0.6936 and micro recall: 0.7516
+macro f1: 0.6663 and micro f1: 0.7516
+at epoch 20 learning_rate is updated to 0.00125
+Epoch: 20 Train loss: 0.5023, Train acc:0.8134, Test loss: 0.5505, Test acc: 0.7958, Time: 68.7751
+macro auc: 0.8451 and micro auc: 0.8693
+macro precision: 0.7306 and micro precision: 0.7958
+macro recall: 0.7299 and micro recall: 0.7958
+macro f1: 0.7029 and micro f1: 0.7958
+Epoch: 21 Train loss: 0.4947, Train acc:0.8156, Test loss: 0.5885, Test acc: 0.7755, Time: 69.0402
+macro auc: 0.8315 and micro auc: 0.8573
+macro precision: 0.7420 and micro precision: 0.7755
+macro recall: 0.7063 and micro recall: 0.7755
+macro f1: 0.7019 and micro f1: 0.7755
+Epoch: 22 Train loss: 0.4953, Train acc:0.8126, Test loss: 0.5541, Test acc: 0.7935, Time: 73.3471
+macro auc: 0.8348 and micro auc: 0.8633
+macro precision: 0.7445 and micro precision: 0.7935
+macro recall: 0.7120 and micro recall: 0.7935
+macro f1: 0.6910 and micro f1: 0.7935
+Epoch: 23 Train loss: 0.4917, Train acc:0.8144, Test loss: 0.5408, Test acc: 0.7987, Time: 69.9930
+macro auc: 0.8391 and micro auc: 0.8668
+macro precision: 0.7424 and micro precision: 0.7987
+macro recall: 0.7195 and micro recall: 0.7987
+macro f1: 0.7030 and micro f1: 0.7987
+Epoch: 24 Train loss: 0.4873, Train acc:0.8161, Test loss: 0.5383, Test acc: 0.7980, Time: 67.5426
+macro auc: 0.8396 and micro auc: 0.8669
+macro precision: 0.7555 and micro precision: 0.7980
+macro recall: 0.7204 and micro recall: 0.7980
+macro f1: 0.7193 and micro f1: 0.7980
+Epoch: 25 Train loss: 0.4876, Train acc:0.8170, Test loss: 0.5471, Test acc: 0.7967, Time: 69.3196
+macro auc: 0.8423 and micro auc: 0.8680
+macro precision: 0.7507 and micro precision: 0.7967
+macro recall: 0.7251 and micro recall: 0.7967
+macro f1: 0.7036 and micro f1: 0.7967
+Epoch: 26 Train loss: 0.4832, Train acc:0.8193, Test loss: 0.5843, Test acc: 0.7804, Time: 77.2170
+macro auc: 0.8232 and micro auc: 0.8541
+macro precision: 0.7375 and micro precision: 0.7804
+macro recall: 0.6918 and micro recall: 0.7804
+macro f1: 0.6767 and micro f1: 0.7804
+Epoch: 27 Train loss: 0.4807, Train acc:0.8201, Test loss: 0.5503, Test acc: 0.7935, Time: 72.0924
+macro auc: 0.8451 and micro auc: 0.8689
+macro precision: 0.7223 and micro precision: 0.7935
+macro recall: 0.7300 and micro recall: 0.7935
+macro f1: 0.6969 and micro f1: 0.7935
+Epoch: 28 Train loss: 0.4785, Train acc:0.8199, Test loss: 0.5516, Test acc: 0.7916, Time: 71.8275
+macro auc: 0.8419 and micro auc: 0.8668
+macro precision: 0.7490 and micro precision: 0.7916
+macro recall: 0.7245 and micro recall: 0.7916
+macro f1: 0.7044 and micro f1: 0.7916
+Epoch: 29 Train loss: 0.4776, Train acc:0.8187, Test loss: 0.5656, Test acc: 0.7848, Time: 77.3325
+macro auc: 0.8331 and micro auc: 0.8603
+macro precision: 0.7581 and micro precision: 0.7848
+macro recall: 0.7091 and micro recall: 0.7848
+macro f1: 0.7080 and micro f1: 0.7848
+at epoch 30 learning_rate is updated to 0.000625
+Epoch: 30 Train loss: 0.4509, Train acc:0.8323, Test loss: 0.5167, Test acc: 0.8064, Time: 69.9258
+macro auc: 0.8507 and micro auc: 0.8747
+macro precision: 0.7902 and micro precision: 0.8064
+macro recall: 0.7398 and micro recall: 0.8064
+macro f1: 0.7457 and micro f1: 0.8064
+Epoch: 31 Train loss: 0.4476, Train acc:0.8336, Test loss: 0.5649, Test acc: 0.7839, Time: 80.8544
+macro auc: 0.8421 and micro auc: 0.8647
+macro precision: 0.7549 and micro precision: 0.7839
+macro recall: 0.7249 and micro recall: 0.7839
+macro f1: 0.7169 and micro f1: 0.7839
+Epoch: 32 Train loss: 0.4481, Train acc:0.8320, Test loss: 0.5210, Test acc: 0.8031, Time: 73.2600
+macro auc: 0.8486 and micro auc: 0.8730
+macro precision: 0.7372 and micro precision: 0.8031
+macro recall: 0.7362 and micro recall: 0.8031
+macro f1: 0.7103 and micro f1: 0.8031
+Epoch: 33 Train loss: 0.4451, Train acc:0.8334, Test loss: 0.5138, Test acc: 0.8088, Time: 75.2591
+macro auc: 0.8518 and micro auc: 0.8760
+macro precision: 0.7454 and micro precision: 0.8088
+macro recall: 0.7417 and micro recall: 0.8088
+macro f1: 0.7118 and micro f1: 0.8088
+Epoch: 34 Train loss: 0.4428, Train acc:0.8343, Test loss: 0.5287, Test acc: 0.8019, Time: 86.0524
+macro auc: 0.8444 and micro auc: 0.8703
+macro precision: 0.7612 and micro precision: 0.8019
+macro recall: 0.7288 and micro recall: 0.8019
+macro f1: 0.7096 and micro f1: 0.8019
+Epoch: 35 Train loss: 0.4417, Train acc:0.8338, Test loss: 0.5154, Test acc: 0.8072, Time: 84.7511
+macro auc: 0.8448 and micro auc: 0.8719
+macro precision: 0.7607 and micro precision: 0.8072
+macro recall: 0.7295 and micro recall: 0.8072
+macro f1: 0.7115 and micro f1: 0.8072
+Epoch: 36 Train loss: 0.4405, Train acc:0.8354, Test loss: 0.5290, Test acc: 0.8023, Time: 74.9158
+macro auc: 0.8527 and micro auc: 0.8749
+macro precision: 0.7343 and micro precision: 0.8023
+macro recall: 0.7432 and micro recall: 0.8023
+macro f1: 0.7149 and micro f1: 0.8023
+Epoch: 37 Train loss: 0.4406, Train acc:0.8344, Test loss: 0.5442, Test acc: 0.7952, Time: 74.1573
+macro auc: 0.8434 and micro auc: 0.8682
+macro precision: 0.7579 and micro precision: 0.7952
+macro recall: 0.7270 and micro recall: 0.7952
+macro f1: 0.7067 and micro f1: 0.7952
+Epoch: 38 Train loss: 0.4398, Train acc:0.8349, Test loss: 0.5190, Test acc: 0.8061, Time: 66.2323
+macro auc: 0.8464 and micro auc: 0.8726
+macro precision: 0.7799 and micro precision: 0.8061
+macro recall: 0.7322 and micro recall: 0.8061
+macro f1: 0.7361 and micro f1: 0.8061
+Epoch: 39 Train loss: 0.4391, Train acc:0.8349, Test loss: 0.5249, Test acc: 0.8054, Time: 65.0592
+macro auc: 0.8535 and micro auc: 0.8760
+macro precision: 0.7430 and micro precision: 0.8054
+macro recall: 0.7446 and micro recall: 0.8054
+macro f1: 0.7116 and micro f1: 0.8054
+at epoch 40 learning_rate is updated to 0.0003125
+Epoch: 40 Train loss: 0.4227, Train acc:0.8437, Test loss: 0.5182, Test acc: 0.8068, Time: 65.1414
+macro auc: 0.8490 and micro auc: 0.8740
+macro precision: 0.7528 and micro precision: 0.8068
+macro recall: 0.7368 and micro recall: 0.8068
+macro f1: 0.7125 and micro f1: 0.8068
+Epoch: 41 Train loss: 0.4234, Train acc:0.8421, Test loss: 0.5285, Test acc: 0.7996, Time: 65.0522
+macro auc: 0.8481 and micro auc: 0.8716
+macro precision: 0.7626 and micro precision: 0.7996
+macro recall: 0.7352 and micro recall: 0.7996
+macro f1: 0.7253 and micro f1: 0.7996
+Epoch: 42 Train loss: 0.4210, Train acc:0.8436, Test loss: 0.5100, Test acc: 0.8121, Time: 64.8844
+macro auc: 0.8472 and micro auc: 0.8745
+macro precision: 0.7699 and micro precision: 0.8121
+macro recall: 0.7336 and micro recall: 0.8121
+macro f1: 0.7264 and micro f1: 0.8121
+Epoch: 43 Train loss: 0.4211, Train acc:0.8436, Test loss: 0.5098, Test acc: 0.8111, Time: 64.4801
+macro auc: 0.8546 and micro auc: 0.8779
+macro precision: 0.7761 and micro precision: 0.8111
+macro recall: 0.7465 and micro recall: 0.8111
+macro f1: 0.7370 and micro f1: 0.8111
+Epoch: 44 Train loss: 0.4203, Train acc:0.8427, Test loss: 0.5080, Test acc: 0.8116, Time: 64.7590
+macro auc: 0.8492 and micro auc: 0.8753
+macro precision: 0.7605 and micro precision: 0.8116
+macro recall: 0.7372 and micro recall: 0.8116
+macro f1: 0.7165 and micro f1: 0.8116
+Epoch: 45 Train loss: 0.4196, Train acc:0.8441, Test loss: 0.5122, Test acc: 0.8106, Time: 64.5094
+macro auc: 0.8522 and micro auc: 0.8767
+macro precision: 0.7370 and micro precision: 0.8106
+macro recall: 0.7424 and micro recall: 0.8106
+macro f1: 0.7157 and micro f1: 0.8106
+Epoch: 46 Train loss: 0.4188, Train acc:0.8438, Test loss: 0.5103, Test acc: 0.8087, Time: 64.6863
+macro auc: 0.8453 and micro auc: 0.8726
+macro precision: 0.7664 and micro precision: 0.8087
+macro recall: 0.7304 and micro recall: 0.8087
+macro f1: 0.7241 and micro f1: 0.8087
+Epoch: 47 Train loss: 0.4189, Train acc:0.8431, Test loss: 0.5181, Test acc: 0.8063, Time: 64.4892
+macro auc: 0.8465 and micro auc: 0.8725
+macro precision: 0.7633 and micro precision: 0.8063
+macro recall: 0.7324 and micro recall: 0.8063
+macro f1: 0.7288 and micro f1: 0.8063
+Epoch: 48 Train loss: 0.4182, Train acc:0.8442, Test loss: 0.5112, Test acc: 0.8096, Time: 64.4025
+macro auc: 0.8507 and micro auc: 0.8756
+macro precision: 0.7500 and micro precision: 0.8096
+macro recall: 0.7397 and micro recall: 0.8096
+macro f1: 0.7163 and micro f1: 0.8096
+Epoch: 49 Train loss: 0.4171, Train acc:0.8440, Test loss: 0.5104, Test acc: 0.8105, Time: 64.2018
+macro auc: 0.8509 and micro auc: 0.8758
+macro precision: 0.7741 and micro precision: 0.8105
+macro recall: 0.7400 and micro recall: 0.8105
+macro f1: 0.7332 and micro f1: 0.8105
+at epoch 50 learning_rate is updated to 0.00015625
+Epoch: 50 Train loss: 0.4092, Train acc:0.8484, Test loss: 0.5092, Test acc: 0.8106, Time: 64.6421
+macro auc: 0.8520 and micro auc: 0.8765
+macro precision: 0.7681 and micro precision: 0.8106
+macro recall: 0.7420 and micro recall: 0.8106
+macro f1: 0.7297 and micro f1: 0.8106
+Epoch: 51 Train loss: 0.4078, Train acc:0.8488, Test loss: 0.5020, Test acc: 0.8154, Time: 65.1854
+macro auc: 0.8535 and micro auc: 0.8784
+macro precision: 0.7713 and micro precision: 0.8154
+macro recall: 0.7447 and micro recall: 0.8154
+macro f1: 0.7341 and micro f1: 0.8154
+Epoch: 52 Train loss: 0.4079, Train acc:0.8492, Test loss: 0.5025, Test acc: 0.8153, Time: 65.2875
+macro auc: 0.8549 and micro auc: 0.8792
+macro precision: 0.7626 and micro precision: 0.8153
+macro recall: 0.7470 and micro recall: 0.8153
+macro f1: 0.7316 and micro f1: 0.8153
+Epoch: 53 Train loss: 0.4071, Train acc:0.8485, Test loss: 0.5146, Test acc: 0.8110, Time: 67.9241
+macro auc: 0.8485 and micro auc: 0.8748
+macro precision: 0.7500 and micro precision: 0.8110
+macro recall: 0.7359 and micro recall: 0.8110
+macro f1: 0.7111 and micro f1: 0.8110
+Epoch: 54 Train loss: 0.4070, Train acc:0.8487, Test loss: 0.5030, Test acc: 0.8153, Time: 64.9167
+macro auc: 0.8550 and micro auc: 0.8793
+macro precision: 0.7728 and micro precision: 0.8153
+macro recall: 0.7473 and micro recall: 0.8153
+macro f1: 0.7372 and micro f1: 0.8153
+Epoch: 55 Train loss: 0.4065, Train acc:0.8482, Test loss: 0.5049, Test acc: 0.8124, Time: 64.4000
+macro auc: 0.8462 and micro auc: 0.8739
+macro precision: 0.7720 and micro precision: 0.8124
+macro recall: 0.7320 and micro recall: 0.8124
+macro f1: 0.7262 and micro f1: 0.8124
+Epoch: 56 Train loss: 0.4058, Train acc:0.8496, Test loss: 0.5040, Test acc: 0.8122, Time: 63.8204
+macro auc: 0.8500 and micro auc: 0.8759
+macro precision: 0.7726 and micro precision: 0.8122
+macro recall: 0.7385 and micro recall: 0.8122
+macro f1: 0.7299 and micro f1: 0.8122
+Epoch: 57 Train loss: 0.4069, Train acc:0.8483, Test loss: 0.5032, Test acc: 0.8151, Time: 63.5653
+macro auc: 0.8542 and micro auc: 0.8787
+macro precision: 0.7760 and micro precision: 0.8151
+macro recall: 0.7459 and micro recall: 0.8151
+macro f1: 0.7366 and micro f1: 0.8151
+Epoch: 58 Train loss: 0.4060, Train acc:0.8491, Test loss: 0.5090, Test acc: 0.8117, Time: 64.0256
+macro auc: 0.8541 and micro auc: 0.8779
+macro precision: 0.7528 and micro precision: 0.8117
+macro recall: 0.7457 and micro recall: 0.8117
+macro f1: 0.7327 and micro f1: 0.8117
+Epoch: 59 Train loss: 0.4054, Train acc:0.8495, Test loss: 0.5122, Test acc: 0.8086, Time: 63.7140
+macro auc: 0.8511 and micro auc: 0.8756
+macro precision: 0.7580 and micro precision: 0.8086
+macro recall: 0.7406 and micro recall: 0.8086
+macro f1: 0.7270 and micro f1: 0.8086
+at epoch 60 learning_rate is updated to 7.8125e-05
+Epoch: 60 Train loss: 0.4010, Train acc:0.8513, Test loss: 0.5036, Test acc: 0.8136, Time: 64.4565
+macro auc: 0.8494 and micro auc: 0.8759
+macro precision: 0.7722 and micro precision: 0.8136
+macro recall: 0.7376 and micro recall: 0.8136
+macro f1: 0.7303 and micro f1: 0.8136
+Epoch: 61 Train loss: 0.4007, Train acc:0.8522, Test loss: 0.5017, Test acc: 0.8142, Time: 64.0156
+macro auc: 0.8487 and micro auc: 0.8758
+macro precision: 0.7699 and micro precision: 0.8142
+macro recall: 0.7364 and micro recall: 0.8142
+macro f1: 0.7282 and micro f1: 0.8142
+Epoch: 62 Train loss: 0.4003, Train acc:0.8520, Test loss: 0.4990, Test acc: 0.8158, Time: 64.1986
+macro auc: 0.8522 and micro auc: 0.8779
+macro precision: 0.7737 and micro precision: 0.8158
+macro recall: 0.7424 and micro recall: 0.8158
+macro f1: 0.7334 and micro f1: 0.8158
+Epoch: 63 Train loss: 0.4001, Train acc:0.8516, Test loss: 0.5021, Test acc: 0.8146, Time: 63.6969
+macro auc: 0.8503 and micro auc: 0.8766
+macro precision: 0.7722 and micro precision: 0.8146
+macro recall: 0.7392 and micro recall: 0.8146
+macro f1: 0.7309 and micro f1: 0.8146
+Epoch: 64 Train loss: 0.4002, Train acc:0.8519, Test loss: 0.5023, Test acc: 0.8145, Time: 64.0614
+macro auc: 0.8509 and micro auc: 0.8769
+macro precision: 0.7749 and micro precision: 0.8145
+macro recall: 0.7402 and micro recall: 0.8145
+macro f1: 0.7315 and micro f1: 0.8145
+Epoch: 65 Train loss: 0.4000, Train acc:0.8520, Test loss: 0.5009, Test acc: 0.8159, Time: 63.5365
+macro auc: 0.8510 and micro auc: 0.8773
+macro precision: 0.7652 and micro precision: 0.8159
+macro recall: 0.7403 and micro recall: 0.8159
+macro f1: 0.7293 and micro f1: 0.8159
+Epoch: 66 Train loss: 0.3999, Train acc:0.8514, Test loss: 0.4988, Test acc: 0.8158, Time: 64.2112
+macro auc: 0.8509 and micro auc: 0.8772
+macro precision: 0.7752 and micro precision: 0.8158
+macro recall: 0.7402 and micro recall: 0.8158
+macro f1: 0.7330 and micro f1: 0.8158
+Epoch: 67 Train loss: 0.3999, Train acc:0.8519, Test loss: 0.5006, Test acc: 0.8157, Time: 63.3703
+macro auc: 0.8527 and micro auc: 0.8781
+macro precision: 0.7700 and micro precision: 0.8157
+macro recall: 0.7432 and micro recall: 0.8157
+macro f1: 0.7321 and micro f1: 0.8157
+Epoch: 68 Train loss: 0.3989, Train acc:0.8525, Test loss: 0.4985, Test acc: 0.8178, Time: 62.9905
+macro auc: 0.8531 and micro auc: 0.8788
+macro precision: 0.7779 and micro precision: 0.8178
+macro recall: 0.7439 and micro recall: 0.8178
+macro f1: 0.7361 and micro f1: 0.8178
+Epoch: 69 Train loss: 0.3994, Train acc:0.8529, Test loss: 0.5017, Test acc: 0.8151, Time: 63.2409
+macro auc: 0.8504 and micro auc: 0.8768
+macro precision: 0.7707 and micro precision: 0.8151
+macro recall: 0.7393 and micro recall: 0.8151
+macro f1: 0.7313 and micro f1: 0.8151
+at epoch 70 learning_rate is updated to 3.90625e-05
+Epoch: 70 Train loss: 0.3971, Train acc:0.8533, Test loss: 0.4993, Test acc: 0.8151, Time: 63.1368
+macro auc: 0.8513 and micro auc: 0.8772
+macro precision: 0.7714 and micro precision: 0.8151
+macro recall: 0.7408 and micro recall: 0.8151
+macro f1: 0.7316 and micro f1: 0.8151
+Epoch: 71 Train loss: 0.3969, Train acc:0.8536, Test loss: 0.4983, Test acc: 0.8164, Time: 62.8319
+macro auc: 0.8535 and micro auc: 0.8787
+macro precision: 0.7718 and micro precision: 0.8164
+macro recall: 0.7446 and micro recall: 0.8164
+macro f1: 0.7338 and micro f1: 0.8164
+Epoch: 72 Train loss: 0.3966, Train acc:0.8539, Test loss: 0.4984, Test acc: 0.8166, Time: 64.2698
+macro auc: 0.8541 and micro auc: 0.8791
+macro precision: 0.7763 and micro precision: 0.8166
+macro recall: 0.7457 and micro recall: 0.8166
+macro f1: 0.7363 and micro f1: 0.8166
+Epoch: 73 Train loss: 0.3968, Train acc:0.8539, Test loss: 0.4996, Test acc: 0.8156, Time: 65.4301
+macro auc: 0.8544 and micro auc: 0.8790
+macro precision: 0.7723 and micro precision: 0.8156
+macro recall: 0.7462 and micro recall: 0.8156
+macro f1: 0.7345 and micro f1: 0.8156
+Epoch: 74 Train loss: 0.3966, Train acc:0.8533, Test loss: 0.4998, Test acc: 0.8157, Time: 64.5629
+macro auc: 0.8527 and micro auc: 0.8781
+macro precision: 0.7726 and micro precision: 0.8157
+macro recall: 0.7432 and micro recall: 0.8157
+macro f1: 0.7336 and micro f1: 0.8157
+Epoch: 75 Train loss: 0.3965, Train acc:0.8536, Test loss: 0.4986, Test acc: 0.8147, Time: 64.6493
+macro auc: 0.8506 and micro auc: 0.8768
+macro precision: 0.7708 and micro precision: 0.8147
+macro recall: 0.7396 and micro recall: 0.8147
+macro f1: 0.7305 and micro f1: 0.8147
+Epoch: 76 Train loss: 0.3961, Train acc:0.8543, Test loss: 0.4987, Test acc: 0.8158, Time: 65.0734
+macro auc: 0.8535 and micro auc: 0.8785
+macro precision: 0.7734 and micro precision: 0.8158
+macro recall: 0.7446 and micro recall: 0.8158
+macro f1: 0.7345 and micro f1: 0.8158
+Epoch: 77 Train loss: 0.3964, Train acc:0.8539, Test loss: 0.4995, Test acc: 0.8163, Time: 67.1405
+macro auc: 0.8519 and micro auc: 0.8779
+macro precision: 0.7729 and micro precision: 0.8163
+macro recall: 0.7419 and micro recall: 0.8163
+macro f1: 0.7330 and micro f1: 0.8163
+Epoch: 78 Train loss: 0.3961, Train acc:0.8536, Test loss: 0.5001, Test acc: 0.8150, Time: 65.3010
+macro auc: 0.8515 and micro auc: 0.8774
+macro precision: 0.7690 and micro precision: 0.8150
+macro recall: 0.7412 and micro recall: 0.8150
+macro f1: 0.7313 and micro f1: 0.8150
+Epoch: 79 Train loss: 0.3962, Train acc:0.8535, Test loss: 0.4975, Test acc: 0.8164, Time: 64.5042
+macro auc: 0.8523 and micro auc: 0.8781
+macro precision: 0.7720 and micro precision: 0.8164
+macro recall: 0.7425 and micro recall: 0.8164
+macro f1: 0.7325 and micro f1: 0.8164
+at epoch 80 learning_rate is updated to 1.953125e-05
+Epoch: 80 Train loss: 0.3949, Train acc:0.8544, Test loss: 0.5000, Test acc: 0.8153, Time: 64.9121
+macro auc: 0.8531 and micro auc: 0.8782
+macro precision: 0.7709 and micro precision: 0.8153
+macro recall: 0.7439 and micro recall: 0.8153
+macro f1: 0.7330 and micro f1: 0.8153
+Epoch: 81 Train loss: 0.3947, Train acc:0.8541, Test loss: 0.4991, Test acc: 0.8150, Time: 64.7982
+macro auc: 0.8540 and micro auc: 0.8786
+macro precision: 0.7724 and micro precision: 0.8150
+macro recall: 0.7455 and micro recall: 0.8150
+macro f1: 0.7342 and micro f1: 0.8150
+Epoch: 82 Train loss: 0.3947, Train acc:0.8545, Test loss: 0.4994, Test acc: 0.8154, Time: 64.5145
+macro auc: 0.8509 and micro auc: 0.8771
+macro precision: 0.7710 and micro precision: 0.8154
+macro recall: 0.7401 and micro recall: 0.8154
+macro f1: 0.7310 and micro f1: 0.8154
+Epoch: 83 Train loss: 0.3945, Train acc:0.8546, Test loss: 0.5003, Test acc: 0.8151, Time: 66.7568
+macro auc: 0.8526 and micro auc: 0.8780
+macro precision: 0.7694 and micro precision: 0.8151
+macro recall: 0.7431 and micro recall: 0.8151
+macro f1: 0.7324 and micro f1: 0.8151
+Epoch: 84 Train loss: 0.3947, Train acc:0.8543, Test loss: 0.4984, Test acc: 0.8164, Time: 64.8375
+macro auc: 0.8528 and micro auc: 0.8784
+macro precision: 0.7720 and micro precision: 0.8164
+macro recall: 0.7435 and micro recall: 0.8164
+macro f1: 0.7332 and micro f1: 0.8164
+Epoch: 85 Train loss: 0.3946, Train acc:0.8549, Test loss: 0.4990, Test acc: 0.8146, Time: 64.7249
+macro auc: 0.8508 and micro auc: 0.8769
+macro precision: 0.7703 and micro precision: 0.8146
+macro recall: 0.7399 and micro recall: 0.8146
+macro f1: 0.7304 and micro f1: 0.8146
+Epoch: 86 Train loss: 0.3945, Train acc:0.8543, Test loss: 0.4980, Test acc: 0.8161, Time: 66.8679
+macro auc: 0.8520 and micro auc: 0.8779
+macro precision: 0.7712 and micro precision: 0.8161
+macro recall: 0.7421 and micro recall: 0.8161
+macro f1: 0.7321 and micro f1: 0.8161
+Epoch: 87 Train loss: 0.3946, Train acc:0.8545, Test loss: 0.4987, Test acc: 0.8159, Time: 66.6562
+macro auc: 0.8523 and micro auc: 0.8780
+macro precision: 0.7717 and micro precision: 0.8159
+macro recall: 0.7426 and micro recall: 0.8159
+macro f1: 0.7326 and micro f1: 0.8159
+Epoch: 88 Train loss: 0.3944, Train acc:0.8547, Test loss: 0.4984, Test acc: 0.8158, Time: 65.6788
+macro auc: 0.8516 and micro auc: 0.8776
+macro precision: 0.7711 and micro precision: 0.8158
+macro recall: 0.7414 and micro recall: 0.8158
+macro f1: 0.7317 and micro f1: 0.8158
+Epoch: 89 Train loss: 0.3943, Train acc:0.8546, Test loss: 0.4981, Test acc: 0.8155, Time: 64.3738
+macro auc: 0.8529 and micro auc: 0.8782
+macro precision: 0.7713 and micro precision: 0.8155
+macro recall: 0.7435 and micro recall: 0.8155
+macro f1: 0.7331 and micro f1: 0.8155
+at epoch 90 learning_rate is updated to 9.765625e-06
+Epoch: 90 Train loss: 0.3937, Train acc:0.8548, Test loss: 0.4999, Test acc: 0.8152, Time: 63.9733
+macro auc: 0.8514 and micro auc: 0.8773
+macro precision: 0.7714 and micro precision: 0.8152
+macro recall: 0.7409 and micro recall: 0.8152
+macro f1: 0.7317 and micro f1: 0.8152
+Epoch: 91 Train loss: 0.3936, Train acc:0.8551, Test loss: 0.4985, Test acc: 0.8154, Time: 64.9063
+macro auc: 0.8525 and micro auc: 0.8779
+macro precision: 0.7731 and micro precision: 0.8154
+macro recall: 0.7429 and micro recall: 0.8154
+macro f1: 0.7333 and micro f1: 0.8154
+Epoch: 92 Train loss: 0.3937, Train acc:0.8546, Test loss: 0.4988, Test acc: 0.8161, Time: 63.7245
+macro auc: 0.8515 and micro auc: 0.8776
+macro precision: 0.7715 and micro precision: 0.8161
+macro recall: 0.7411 and micro recall: 0.8161
+macro f1: 0.7318 and micro f1: 0.8161
+Epoch: 93 Train loss: 0.3935, Train acc:0.8550, Test loss: 0.4988, Test acc: 0.8158, Time: 64.3606
+macro auc: 0.8519 and micro auc: 0.8778
+macro precision: 0.7717 and micro precision: 0.8158
+macro recall: 0.7420 and micro recall: 0.8158
+macro f1: 0.7322 and micro f1: 0.8158
+Epoch: 94 Train loss: 0.3936, Train acc:0.8551, Test loss: 0.4988, Test acc: 0.8160, Time: 64.4327
+macro auc: 0.8520 and micro auc: 0.8779
+macro precision: 0.7707 and micro precision: 0.8160
+macro recall: 0.7420 and micro recall: 0.8160
+macro f1: 0.7320 and micro f1: 0.8160
+Epoch: 95 Train loss: 0.3936, Train acc:0.8547, Test loss: 0.4986, Test acc: 0.8152, Time: 68.3050
+macro auc: 0.8512 and micro auc: 0.8772
+macro precision: 0.7710 and micro precision: 0.8152
+macro recall: 0.7406 and micro recall: 0.8152
+macro f1: 0.7312 and micro f1: 0.8152
+Epoch: 96 Train loss: 0.3936, Train acc:0.8551, Test loss: 0.4990, Test acc: 0.8158, Time: 69.7767
+macro auc: 0.8519 and micro auc: 0.8777
+macro precision: 0.7711 and micro precision: 0.8158
+macro recall: 0.7419 and micro recall: 0.8158
+macro f1: 0.7321 and micro f1: 0.8158
+Epoch: 97 Train loss: 0.3934, Train acc:0.8549, Test loss: 0.4984, Test acc: 0.8152, Time: 62.7775
+macro auc: 0.8513 and micro auc: 0.8773
+macro precision: 0.7705 and micro precision: 0.8152
+macro recall: 0.7409 and micro recall: 0.8152
+macro f1: 0.7312 and micro f1: 0.8152
+Epoch: 98 Train loss: 0.3936, Train acc:0.8551, Test loss: 0.4986, Test acc: 0.8150, Time: 66.2068
+macro auc: 0.8510 and micro auc: 0.8771
+macro precision: 0.7708 and micro precision: 0.8150
+macro recall: 0.7404 and micro recall: 0.8150
+macro f1: 0.7311 and micro f1: 0.8150
+Epoch: 99 Train loss: 0.3934, Train acc:0.8553, Test loss: 0.4989, Test acc: 0.8162, Time: 72.2517
+macro auc: 0.8516 and micro auc: 0.8777
+macro precision: 0.7715 and micro precision: 0.8162
+macro recall: 0.7413 and micro recall: 0.8162
+macro f1: 0.7320 and micro f1: 0.8162

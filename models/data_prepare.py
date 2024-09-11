@@ -16,7 +16,7 @@ from sklearn import metrics
 from sklearn.preprocessing import label_binarize
 
 
-def prepare_mixed_data_granularity(root_path, granularity):
+def prepare_mixed_data_granularity(root_path, granularity, retain_number=[[278,283],[268,278],[238,268],[188,238],[138,188],[5,10]]):
     """
     prepare mixed training dataset and labels
     :param root_path:
@@ -29,31 +29,44 @@ def prepare_mixed_data_granularity(root_path, granularity):
     test_labels = df_labels.iloc[round(0.8 * total_rows):, 0].values
     train_labels = df_labels.iloc[0:round(0.8 * total_rows), 0].values
     final_train_labels = train_labels
-    for i in range(5):
+    final_test_labels = test_labels
+    for i in range(len(retain_number)-1):
         final_train_labels = np.append(final_train_labels, train_labels, axis=0)
+        final_test_labels = np.append(final_test_labels, test_labels, axis=0)
     # print(final_train_labels.shape)
 
-    traindata_names = ["single_all_sparse510.npy", "single_all_sparse1020.npy", "single_all_sparse2050.npy",
-                       "single_all_sparse50100.npy", "single_all_sparse100150.npy", "single_all_sparse278283.npy"]
+    raw_data = np.load(os.path.join(root_path, "raw_sub_df_com_data.npy"))
+    # traindata_names = ["single_all_sparse510.npy", "single_all_sparse1020.npy", "single_all_sparse2050.npy",
+    #                    "single_all_sparse50100.npy", "single_all_sparse100150.npy", "single_all_sparse278283.npy"]
+    traindata_names = ["single_all_sparse{}{}.npy".format(288-n[1], 288-n[0]) for n in retain_number]
     train_x = np.array([])
+    test_x = np.array([])
+    raw_train_x = np.array([])
+    raw_test_x = np.array([])
     for name in traindata_names:
         single_sparse_data = np.load(os.path.join(root_path, name))
         train_data = single_sparse_data[0:round(0.8 * total_rows), :, :]
-        if name == "single_all_sparse1020.npy":
-            test_x = single_sparse_data[round(0.8 * total_rows):, :, :]
+        test_data = single_sparse_data[round(0.8 * total_rows):, :, :]
+        # wtf???
+        # if name == "single_all_sparse1020.npy":
+        #     test_x = single_sparse_data[round(0.8 * total_rows):, :, :]
         if train_x.shape[0] == 0:
             train_x = train_data
+            test_x = test_data
+            raw_train_x = raw_data[0:round(0.8 * total_rows), :]
+            raw_test_x = raw_data[round(0.8 * total_rows):, :]
         else:
             train_x = np.vstack([train_x, train_data])
-        # print(train_x)
-
+            test_x = np.vstack([test_x, test_data])
+            raw_train_x = np.vstack([raw_train_x, raw_data[0:round(0.8 * total_rows), :]])
+            raw_test_x = np.vstack([raw_test_x, raw_data[round(0.8 * total_rows):, :]])
 
     train_x = train_x.astype('float32')
     test_x = test_x.astype('float32')
-    return final_train_labels, test_labels, train_x, test_x
+    return final_train_labels, final_test_labels, train_x, test_x, raw_train_x, raw_test_x
 
 
-def prepare_train_test_data(train_data, test_data, train_labels, test_labels, batch_size=50, reshape_flag=True):
+def prepare_train_test_data(train_data, test_data, train_labels, test_labels, raw_train_data, raw_test_data, batch_size=50, reshape_flag=True):
     """
     prepare train and test data loader respectively
     :param train_data: np.arrays
@@ -71,8 +84,8 @@ def prepare_train_test_data(train_data, test_data, train_labels, test_labels, ba
         train_data = train_data.reshape(train_num, type_size, time_steps, -1)
         test_data = test_data.reshape(test_num, type_size, time_steps, -1)
 
-    train_dataset = TensorDataset(torch.from_numpy(train_data), torch.from_numpy(train_labels).squeeze())
-    test_dataset = TensorDataset(torch.from_numpy(test_data), torch.from_numpy(test_labels).squeeze())
+    train_dataset = TensorDataset(torch.from_numpy(train_data), torch.from_numpy(train_labels).squeeze(), torch.from_numpy(raw_train_data).squeeze())
+    test_dataset = TensorDataset(torch.from_numpy(test_data), torch.from_numpy(test_labels).squeeze(), torch.from_numpy(raw_test_data).squeeze())
     train_dataloader = DataLoader(train_dataset, shuffle=True, batch_size=batch_size)
     test_dataloader = DataLoader(test_dataset, shuffle=True, batch_size=batch_size)
 
@@ -108,7 +121,7 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
     f.write('Model Structure\r\n')
     f.write(str(model)+'\r\n')
     f.close()
-    print('Model Structure: ', model)
+    print('Model Structure:\n', model)
     print('Start Training ... ')
     if loss_weights is not None:
         loss_weights = loss_weights.astype('float32')
@@ -155,7 +168,8 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
         label, pred = None, None
         model.train()
         pre_time = time.time()
-        for train_data, train_label in train_dataloader:
+        for train_data, train_label, _ in train_dataloader:
+            # print(train_data.shape, train_label.shape, _.shape)
             batch_size = train_data.shape[0]
             if use_gpu and device == 0:
                 train_data, train_label = Variable(train_data.cuda()), Variable(train_label.cuda())
@@ -166,7 +180,7 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
                 train_data, train_label = Variable(train_data), Variable(train_label)
 
             optimizer.zero_grad()
-            output = model(train_data)
+            output, _ = model(train_data)
 
             if not target_replication:
                 weighted_output = output
@@ -242,7 +256,7 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
         model.eval()
         final_y_score = None
         with torch.no_grad():
-            for test_data, test_label in test_dataloader:
+            for test_data, test_label, _ in test_dataloader:
                 if use_gpu and device == 0:
                     test_data, test_label = Variable(test_data.cuda()), Variable(test_label.cuda())
                 if use_gpu and device == 1:
@@ -250,7 +264,7 @@ def train_model(model, train_dataloader, test_dataloader, text_path, model_path,
                 else:
                     test_data, test_label = Variable(test_data), Variable(test_label)
 
-                output = model(test_data)
+                output, _ = model(test_data)
 
                 if not target_replication:
                     weighted_output = output
